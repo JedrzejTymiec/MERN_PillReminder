@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    />
+    <title>Pill Reminder</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar bg-primary">
+      <h1><i class="fas fa-capsules"></i> PillReminder</h1>
+      <ul>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="add-new.html">Add new</a></li>
+        <li>
+          <a href="login.html"><i class="fas fa-sign-out-alt"></i></a>
+        </li>
+      </ul>
+    </nav>
+    <aside class="sidebar bg-light">
+      <div class="current-therapy bg-white m-1 px-1">
+        <h3>Emanera</h3>
+        <p>1 capsule per 24h</p>
+        <p>Day 15/50</p>
+      </div>
+      <div class="current-therapy bg-white m-1 px-1">
+        <h3>Rutinoscorbin</h3>
+        <p>1 pill per 12h</p>
+        <p>Day 5/10</p>
+      </div>
+      <div class="add-new bg-white">
+        <a href="add-new.html"><i class="fas fa-plus"></i></a>
+      </div>
+    </aside>
+    <div class="container">
+      <h1>May 14th</h1>
+      <div class="confirm-container">
+        <div class="confirm-group my-3">
+          <p>Emanera, 1 capusle 8:00</p>
+          <p class="primary-text"><i class="fas fa-check"></i> Confirmed</p>
+        </div>
+        <div class="confirm-group my-3">
+          <p>Rutinoscorbin, 1 pill 8:00</p>
+          <button class="btn">Confirm</button>
+        </div>
+        <div class="confirm-group my-3">
+          <p>Rutinoscorbin, 1 pill 20:00</p>
+          <button class="btn">Confirm</button>
+        </div>
+      </div>
+      <button class="btn"><a href="calendar.html">Back to calendar</a></button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+@import "config";
+@import "utilities";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+  background-color: #fff;
+  color: $dark-color;
+  line-height: 1.5;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.landing-container {
+  background-color: $primary-color;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-form {
+    min-height: 50%;
+    padding: 2rem;
+    border-radius: 20px;
+
+    h1 {
+      border-bottom: 1px solid $border-color;
+    }
+
+    form {
+      margin-top: 3rem;
+      width: 100%;
+      text-align: center;
+
+      input {
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        font-family: "Nunito", sans-serif;
+        font-size: 2rem;
+      }
+
+      a:last-child {
+        margin-left: 1rem;
+        @include set-background($light-color);
+      }
+    }
+  }
+}
+
+.container {
+  padding-top: 6rem;
+  width: 75%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .calendar {
+    text-align: right;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  ul {
+    display: flex;
+    margin-right: 2rem;
+  }
+
+  h1 {
+    color: #fff;
+    padding: 0.5rem;
+    margin-left: 1rem;
+  }
+
+  a {
+    padding: 1rem;
+    cursor: pointer;
+    color: #fff;
+
+    &:hover {
+      color: $light-color;
+    }
+  }
+}
+
+.sidebar {
+  min-height: 100vh;
+  width: 25vw;
+  border-right: 1px solid $primary-color;
+  padding-top: 6rem;
+
+  .current-therapy {
+    border-radius: 10px;
+
+    h3 {
+      border-bottom: 1px solid $border-color;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  .add-new {
+    margin: auto;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    cursor: pointer;
+
+    a {
+      color: $primary-color;
+    }
+  }
+}
+
+.table {
+  width: 75%;
+  border-spacing: 0;
+  text-align: left;
+
+  thead {
+    background-color: $border-color;
+  }
+
+  th,
+  td {
+    padding: 1.5rem 2rem;
+  }
+
+  td {
+    cursor: pointer;
+
+    &:first-child {
+      border-right: 1px solid $border-color;
+      font-weight: 700;
+      cursor: auto;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.form {
+  width: 90%;
+  margin-bottom: 2rem;
+
+  input,
+  select {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 2rem;
+    font-family: "Nunito";
+  }
+}
+
+.confirm-container {
+  width: 80%;
+
+  .confirm-group {
+    display: flex;
+    justify-content: space-between;
+  }
+}
