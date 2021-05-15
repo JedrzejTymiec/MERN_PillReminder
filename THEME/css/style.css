@@ -173,6 +173,13 @@
   color: #fff;
 }
 
+.warning {
+  font-size: 1.5rem;
+  color: #d53636;
+  position: absolute;
+  bottom: 0.5rem;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -226,10 +233,14 @@ ul {
   text-align: center;
 }
 
+.landing-container .login-form form .form-group {
+  position: relative;
+}
+
 .landing-container .login-form form input {
   width: 100%;
   padding: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   font-family: "Nunito", sans-serif;
   font-size: 2rem;
 }

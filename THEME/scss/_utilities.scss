@@ -85,3 +85,10 @@ $spaceamounts: (1, 2, 3, 4, 5);
     color: #fff;
   }
 }
+
+.warning {
+  font-size: 1.5rem;
+  color: $danger-color;
+  position: absolute;
+  bottom: 0.5rem;
+}

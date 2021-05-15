@@ -51,10 +51,14 @@ ul {
       width: 100%;
       text-align: center;
 
+      .form-group {
+        position: relative;
+      }
+
       input {
         width: 100%;
         padding: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         font-family: "Nunito", sans-serif;
         font-size: 2rem;
       }
