@@ -1,0 +1,94 @@
+$spaceamounts: (1, 2, 3, 4, 5);
+
+@each $space in $spaceamounts {
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+
+  .px-#{$space} {
+    padding: 0 #{$space}rem;
+  }
+}
+
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+  }
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-light {
+    @include set-background($light-color);
+  }
+  &-danger {
+    @include set-background($danger-color);
+  }
+  &-success {
+    @include set-background($success-color);
+  }
+  &-white {
+    @include set-background(#fff);
+    border: 1px solid $border-color;
+  }
+}
+
+.grey {
+  color: rgb(167, 167, 167);
+}
+
+.balck {
+  color: #000;
+}
+
+.primary-text {
+  color: $primary-color;
+}
+
+.success-therapy {
+  background-color: $success-color;
+}
+
+.active-therapy {
+  background-color: $light-color;
+}
+
+.fail-therapy {
+  background-color: $danger-color;
+}
+
+.warning-therapy {
+  background-color: #d8e600;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  @include set-background($primary-color);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-family: "Nunito";
+  font-size: 2rem;
+
+  a {
+    color: #fff;
+  }
+}
+
+.warning {
+  font-size: 1.5rem;
+  color: $danger-color;
+  position: absolute;
+  bottom: 0.5rem;
+}

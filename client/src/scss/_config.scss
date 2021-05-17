@@ -1,0 +1,21 @@
+$primary-color: #55a987;
+$dark-color: #003d25;
+$light-color: #baffe3;
+$danger-color: #d53636;
+$success-color: #00c273;
+$border-color: #9ad3bc;
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+@function set-text-color($bg-color) {
+  @if (lightness($bg-color) > 40) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
