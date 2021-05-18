@@ -60,4 +60,18 @@ router.post(
   }
 );
 
+// route:  POST api/auth
+// desc:   Login user
+// access: Public
+
+router.get("/user", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    res.json(user);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
 module.exports = router;
