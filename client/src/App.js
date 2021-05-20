@@ -10,9 +10,9 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/app" component={Main} />
+          <Route exact path={["/", "/login"]} component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/app" component={Main} />
         </Switch>
       </Router>
     </Provider>

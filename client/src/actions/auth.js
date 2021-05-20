@@ -51,6 +51,7 @@ export const login = (email, password) => async (dispatch) => {
     });
     dispatch(loadUser());
   } catch (err) {
+    console.log(err.response);
     dispatch(setFormAlert(err.response.data.errors[0].msg));
     dispatch({ type: LOGIN_FAIL });
   }
@@ -76,9 +77,15 @@ export const register = (email, password) => async (dispatch) => {
     });
     dispatch(loadUser());
   } catch (err) {
-    console.log(err);
+    console.log(err.response);
     dispatch({
       type: REGISTER_FAIL,
     });
+    dispatch(
+      setFormAlert(
+        err.response.data.errors[0].msg,
+        err.response.data.errors[0].param
+      )
+    );
   }
 };

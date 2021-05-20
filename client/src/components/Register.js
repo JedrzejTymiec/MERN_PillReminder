@@ -1,7 +1,12 @@
 import { useState } from "react";
 import Alert from "./Alert";
+import { connect } from "react-redux";
+import { register } from "../actions/auth";
+import PropTypes from "prop-types";
+import { setFormAlert } from "../actions/alert";
+import { Redirect } from "react-router-dom";
 
-const Register = (props) => {
+const Register = ({ register, alerts, setFormAlert, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,7 +21,18 @@ const Register = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (password !== password2) {
+      setFormAlert("Passwords do not match", "password");
+    } else {
+      register(email, password);
+    }
   };
+
+  if (isAuthenticated) {
+    console.log(isAuthenticated);
+    return <Redirect to="/app" />;
+  }
+
   return (
     <div className="landing-container">
       <div className="login-form bg-white">
@@ -32,8 +48,8 @@ const Register = (props) => {
               value={email}
               onChange={(e) => onChange(e)}
             />
+            {alerts.length > 0 && alerts[0].type === "email" && <Alert />}
           </div>
-          <Alert />
           <div className="form-group">
             <input
               type="password"
@@ -42,8 +58,8 @@ const Register = (props) => {
               value={password}
               onChange={(e) => onChange(e)}
             />
+            {alerts.length > 0 && alerts[0].type === "password" && <Alert />}
           </div>
-          <Alert />
           <div className="form-group">
             <input
               type="password"
@@ -62,4 +78,15 @@ const Register = (props) => {
   );
 };
 
-export default Register;
+Register.propTypes = {
+  register: PropTypes.func.isRequired,
+  setFormAlert: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  alerts: state.alerts,
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { register, setFormAlert })(Register);

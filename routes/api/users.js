@@ -23,17 +23,9 @@ router.post(
     if (passwordErrors.length !== 0) {
       let message;
       if (passwordErrors.length > 1) {
-        message =
-          "Password must be at least 6 characters long and contain digits and letters";
+        message = "Password must be at least 6 characters long";
       } else {
-        switch (passwordErrors[0]) {
-          case "min":
-            message = "Password must be at least 6 cahracters long";
-            break;
-          case "digits":
-            message = "Password must contain at least one digit";
-            break;
-        }
+        message = "Password must contain at least one digit";
       }
       errors.errors.push({
         value: req.body.password,
@@ -53,7 +45,9 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ errors: [{ msg: "Email already registred" }] });
+          .json({
+            errors: [{ msg: "Email already registred", param: "email" }],
+          });
       }
 
       user = new User({ email, password });
