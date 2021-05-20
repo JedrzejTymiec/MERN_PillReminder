@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Alert from "./Alert";
 
 const Register = (props) => {
   const [formData, setFormData] = useState({
@@ -32,6 +33,7 @@ const Register = (props) => {
               onChange={(e) => onChange(e)}
             />
           </div>
+          <Alert />
           <div className="form-group">
             <input
               type="password"
@@ -40,8 +42,8 @@ const Register = (props) => {
               value={password}
               onChange={(e) => onChange(e)}
             />
-            <p className="warning">Passwords do not match</p>
           </div>
+          <Alert />
           <div className="form-group">
             <input
               type="password"
@@ -51,9 +53,9 @@ const Register = (props) => {
               onChange={(e) => onChange(e)}
             />
           </div>
-          <a href="add-new.html" className="btn">
+          <button type="submit" className="btn">
             Register
-          </a>
+          </button>
         </form>
       </div>
     </div>

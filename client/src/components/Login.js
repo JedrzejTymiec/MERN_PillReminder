@@ -3,6 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../actions/auth";
 import { connect } from "react-redux";
+import Alert from "./Alert";
 
 const Login = ({ login, isAuthenticated }) => {
   let [formData, setFormData] = useState({
@@ -40,7 +41,7 @@ const Login = ({ login, isAuthenticated }) => {
               value={email}
               onChange={(e) => onChange(e)}
             />
-            <p className="warning">Invalid email or password</p>
+            <Alert />
           </div>
           <div className="form-group">
             <input

@@ -1,5 +1,6 @@
 import axios from "axios";
 import setToken from "../utilities/setToken";
+import { setFormAlert } from "./alert";
 import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
@@ -50,7 +51,7 @@ export const login = (email, password) => async (dispatch) => {
     });
     dispatch(loadUser());
   } catch (err) {
-    console.log(err.response);
+    dispatch(setFormAlert(err.response.data.errors[0].msg));
     dispatch({ type: LOGIN_FAIL });
   }
 };
