@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { register } from "../actions/auth";
 import PropTypes from "prop-types";
 import { setFormAlert } from "../actions/alert";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 const Register = ({ register, alerts, setFormAlert, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -72,6 +72,9 @@ const Register = ({ register, alerts, setFormAlert, isAuthenticated }) => {
           <button type="submit" className="btn">
             Register
           </button>
+          <Link to="/login" className="btn">
+            Login
+          </Link>
         </form>
       </div>
     </div>

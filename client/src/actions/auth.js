@@ -1,6 +1,7 @@
 import axios from "axios";
 import setToken from "../utilities/setToken";
 import { setFormAlert } from "./alert";
+import { getTherapies } from "./therapies";
 import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
@@ -8,6 +9,7 @@ import {
   USER_LOADED,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  LOGOUT,
 } from "./types.js";
 
 //Load logged user
@@ -50,6 +52,7 @@ export const login = (email, password) => async (dispatch) => {
       payload: res.data,
     });
     dispatch(loadUser());
+    dispatch(getTherapies());
   } catch (err) {
     console.log(err.response);
     dispatch(setFormAlert(err.response.data.errors[0].msg));
@@ -88,4 +91,10 @@ export const register = (email, password) => async (dispatch) => {
       )
     );
   }
+};
+
+// Logout
+
+export const logout = () => (dispatch) => {
+  dispatch({ type: LOGOUT });
 };

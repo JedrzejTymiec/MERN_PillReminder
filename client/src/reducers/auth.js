@@ -5,12 +5,13 @@ import {
   AUTH_FAIL,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  LOGOUT,
 } from "../actions/types";
 
 const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: null,
-  loadin: true,
+  loading: true,
   user: null,
 };
 
@@ -36,6 +37,7 @@ export default function authReducer(state = initialState, action) {
     case AUTH_FAIL:
     case LOGIN_FAIL:
     case REGISTER_FAIL:
+    case LOGOUT:
       return {
         ...state,
         token: null,
